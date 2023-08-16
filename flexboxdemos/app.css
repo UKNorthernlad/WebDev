@@ -9,11 +9,53 @@ h1 {
     width: 90%;
     height: 500px;
     margin: 0 auto;
-    border: 5px solid #003049;
-}
-    
+    /*border: 5px solid #003049;*/
 
+    /* Flexbox works on 1-D elements, e.g. a series of DIVs inside a container.
+       It's purpose is to scale those items as the screen size changes. It's a core part of creating responsive websites.
+    
+    
+    */
+    /*
+      This turns on the "flex" feature. All other flex properies are ignored if this is not set.
+      By default, items inside a flexed container flow left-->right.
+      E.g. div's are nornally block items with one per row, but adding flex makes them inline and places them into columns.
+    */
+    display: flex;   
+    /* By default, items flex into a row: */
+    flex-direction: row;
+    /* but you can flex into columns. The contained items will now be restrained to the container. Heights will be reduced if need be, but still have a maximum as defined in the "height" property of each div item.*/
+    /* flex-direction: column; */
+    
+    /* or reverse the directions so the first contained div is displayed last*/
+    /* flex-direction: row-reverse; */
+    /* flex-direction: column-reverse; */
+
+    /* Allows you to justify the content to one side of the screen or the other.
+       E.g With "flex-direction: row" and: */
+
+    justify-content: flex-start;
+    /* ...content will be displayed from left to right (justified to the left hand side of the screen) */
+    /* but this will justify it to the right-hand side of the screen: */
+    /* justify-content: flex-end; */
+    
+    /* Center the content */
+    /* justify-content: center; */
+
+    /* Others
+    These ensure there is space beween elements/container in various differing ammounts.
+    justify-content: space-between;
+    justify-content: space-around;
+    justify-content: space-evenly;
+    */
+}
+
+/* The divs have their own flexbox settings to center the number both vertically and horizontally */
 #container div {
-    width: 200px;
+    width:  200px;
     height: 200px;
+    display: flex;
+    justify-content: center; /* Horizonal alignment */
+    align-items: center;     /* Vertical alignment */
+    font-size: 5em;
 }
