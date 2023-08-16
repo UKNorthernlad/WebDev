@@ -52,6 +52,8 @@ h1 {
     /* What if we have more item that can fit in the container? By default they are fitted to the row/column.
     However you can wrap the content around to the next row/column using: */
     /* flex-wrap: wrap; */
+
+    
 }
 
 /* The divs have their own flexbox settings to center the number both vertically and horizontally */
@@ -62,4 +64,40 @@ h1 {
     justify-content: center; /* Horizonal alignment */
     align-items: center;     /* Vertical alignment */
     font-size: 5em;
+
+    /* Because it's possible to flex a row (flex-direction:row) or column (flex-direction: column),
+       there is a "directionless" way to specify the width or height of an item in the container WITHOUT 
+       specifying width or height properties.
+       It is the initial width/height of the item BEFORE any automatic resizing / streching etc.
+       e.g. with flex-direction equal to "row", following is the equivalent of settings width equal to 300px.
+       In fact when this is used, the width or hight property is ignored.
+    */
+    /* flex-basis: 300px; */
+}
+
+
+    /* The flex-grow property controls how much space an element takes up IF there is extra space to be had.
+       The value is a ratio.
+       Notice that it is added to items in the flex container, rather than the contain itself.
+       In this example, the 5 divs take up 1000px (5 x 200px). Any left ove space will be split in the following ratios:
+       Div 1 =>  (2 / (2+0.5+4)) * 200 px.
+       Div 2 =>  (0.5 / (2+0.5+4)) * 200 px.
+       etc.
+    */
+div:nth-of-type(1) {
+    flex-grow: 2;
+}
+
+div:nth-of-type(4) {
+    flex-grow: 0.5;
+}
+div:nth-of-type(5) {
+    flex-grow: 4;
+}
+
+/* When there is not enough room and things need to shrink, flex-shink controls how fast an item shinks compared to other items
+   A value of 0 means "do not shrink at all"
+*/ 
+div:nth-of-type(1) {
+    flex-shrink: 2;
 }
