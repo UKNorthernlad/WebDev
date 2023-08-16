@@ -48,11 +48,15 @@ h1 {
     justify-content: space-around;
     justify-content: space-evenly;
     */
+
+    /* What if we have more item that can fit in the container? By default they are fitted to the row/column.
+    However you can wrap the content around to the next row/column using: */
+    flex-wrap: wrap;
 }
 
 /* The divs have their own flexbox settings to center the number both vertically and horizontally */
 #container div {
-    width:  200px;
+    width:  400px;
     height: 200px;
     display: flex;
     justify-content: center; /* Horizonal alignment */
